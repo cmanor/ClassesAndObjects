@@ -7,6 +7,8 @@ public class Animal {
     public Animal(String name, boolean isDog){
         setName(name);
         setDog(isDog);
+    }public Animal(String name){
+        setName(name);
     }
 
     public String getName() {

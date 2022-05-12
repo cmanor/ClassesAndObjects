@@ -6,9 +6,14 @@ public class Book {
     private int publicationYear;
 
     public Book (String title, int pages, int publicationYear) {
-        this.title = title;
-        this.pages = pages;
-        this.publicationYear = publicationYear;
+        this.setTitle(title);
+        this.setPages(pages);
+        this.setPublicationYear(publicationYear);
+    }public Book (String title) {
+        this.setTitle(title);
+    }public Book (String title, int pages) {
+        this.setTitle(title);
+        this.setPages(pages);
     }
 
     public String getTitle() {
@@ -25,5 +30,17 @@ public class Book {
     @Override
     public String toString(){
         return getTitle() + ", " + getPages() + ", " + getPublicationYear();
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setPages(int pages) {
+        this.pages = pages;
+    }
+
+    public void setPublicationYear(int publicationYear) {
+        this.publicationYear = publicationYear;
     }
 }

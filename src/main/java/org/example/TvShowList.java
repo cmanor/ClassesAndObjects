@@ -4,12 +4,12 @@ import java.util.Scanner;
 
 public class TvShowList {
     static Scanner scanner = new Scanner(System.in);
-    static ArrayList list = new ArrayList<TvShow>();
+    static ArrayList<TvShow> list = new ArrayList<>();
 
     public static void printList() {
         System.out.println("Entering nothing will stop the loop");
         String name = "placeholder";
-        String episodes;
+        int episodes;
         String genre;
 
 
@@ -17,7 +17,7 @@ public class TvShowList {
             System.out.println("Name of the show: ");
             name = scanner.nextLine();
             System.out.println("How many episodes? ");
-            episodes = scanner.nextLine();
+            episodes = Integer.parseInt(scanner.nextLine());
             System.out.println("What is the genre?");
             genre = scanner.nextLine();
             if (name.equals("")) {

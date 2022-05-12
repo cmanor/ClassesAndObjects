@@ -1,54 +1,62 @@
 package org.example;
 
-import java.util.Scanner;
-
 public class BankAccount {
+
+    private String accountHolderName;
     private int accountNumber;
-    private String name;
-    private double balance;
+    private double accountBalance;
 
-    public BankAccount(int accountNumber, double balance, String name){
-        setBalance(balance);
-        setName(name);
-        setAccountNumber(accountNumber);
+    public BankAccount(){}
+
+    public BankAccount(String accountHolderName) {
+        this.accountHolderName = accountHolderName;
     }
 
-    public void newCustomer(){
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter name");
-        String name = scanner.nextLine();
-        System.out.println("Enter starting balance");
-        double balance = Double.parseDouble(scanner.nextLine());
-        int accountNum = makeAccountNumber();
-    }
-
-    public int makeAccountNumber(){
-       return this.accountNumber = (int)(Math.random()*100);
-    }
-    public void deposit(double amount){
-        this.setBalance(this.balance + amount);
-    }
-
-    public void withdrawal(double amount){
-        this.setBalance(this.balance - amount);
-    }
-
-    public void details(){
-        System.out.println(name + "'s account balance is: " + balance);
-    }
-
-    public void setBalance(double balance) {
-        this.balance = balance;
-    }
-
-    public void setName(String name) {
-        if (name.equals(""))
-            throw new IllegalArgumentException("Please enter a name");
-        this.name = name;
-
-    }
-
-    public void setAccountNumber(int accountNumber) {
+    public BankAccount(String accountHolderName, int accountNumber) {
+        this.accountHolderName = accountHolderName;
         this.accountNumber = accountNumber;
     }
+    public BankAccount(String accountHolderName, int accountNumber ,double accountBalance) {
+        this.accountHolderName = accountHolderName;
+        this.accountNumber = accountNumber;
+        this.accountBalance = accountBalance;
+    }
+
+    public void deposit(double amount) {
+        this.accountBalance += amount;
+    }
+
+    public void withdrawal(double amount) {
+        this.accountBalance -= amount;
+    }
+
+    public String getAccountHolderName() {
+        return this.accountHolderName;
+    }
+
+    public void setAccountHolderName(String name) {
+        this.accountHolderName = name;
+    }
+
+    public int getAccountNumber() {
+        return accountNumber;
+    }
+
+    public double getAccountBalance() {
+        return accountBalance;
+    }
+
+    public void setAccountBalance(double accountBalance) {
+        this.accountBalance = accountBalance;
+    }
+
+    public void transfer(BankAccount acc, double amount) {
+        withdrawal(amount);
+        acc.deposit(amount);
+    }
+
+    public String toString() {
+        return "Holders name: " + this.accountHolderName + " balance: " + this.accountBalance;
+    }
+
 }
