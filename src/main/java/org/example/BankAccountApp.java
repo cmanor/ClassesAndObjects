@@ -20,6 +20,7 @@ public class BankAccountApp {
 
         int response;
 
+
         while(true) {
             System.out.println("Are you an existing customer? (-1 to exit) \n 1. Yes\n 2. No");
             response = Integer.parseInt(scan.nextLine());
