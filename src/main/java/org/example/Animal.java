@@ -1,7 +1,7 @@
 package org.example;
 
 public class Animal {
-    private String name;
+    private static String name;
     private boolean isDog;
 
     public Animal(String name, boolean isDog){
